@@ -70,7 +70,6 @@ for t = tt
 end
 
 % plot
-mapFig = figure(1);
 plot(tt,XX,'r',tt,xx,'c',tt,yy,'b',tt,XX+3*sqrt(PP),'g',tt,XX-3*sqrt(PP),'g');
 legend('truth','estimate','measurement','+/- 3 sigma')
 
