@@ -34,7 +34,7 @@
 
 仿真结果：
 
-[1](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos)
+![1](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/1.jpg)
 
 ## 二维状态量的EKF仿真
 
@@ -74,13 +74,13 @@
 
 仿真结果：
 
-[2]()
+![4](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/4.jpg)
 
 ## 应用EKF实现2D-SLAM
 ### 问题定义
 某移动机器人按照给定的运动方程在一个环境中运动，并且环境中有n个固定点；这个机器人身上装有某种传感器，一定范围内该种传感器能够量测到某些固定点到自己的距离与角度，现在要根据运动方程和量测信息估算机器人的位置和n个固定点的位置。
 
-[3]()
+![2](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/2.jpg)
 
 ### EKF-SLAM步骤
 
@@ -100,3 +100,9 @@
 - 观测到新的固定点
 
 这时候观测到新的固定点，需要进行状态增广。根据逆观测方程，使用观测信息推测出新加的增广状态均值与方差，然后加入到总体的状态与协方差矩阵中。
+
+仿真结果：
+
+![3](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/3.jpg)
+
+
