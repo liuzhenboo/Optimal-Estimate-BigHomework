@@ -77,13 +77,13 @@
 
 ![4](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/4.jpg)
 
-## 应用EKF实现2D-SLAM
+## 扩展卡尔曼滤波实现2D-SLAM
 ### 问题定义
 某移动机器人按照给定的运动方程在一个环境中运动，并且环境中有n个固定点；这个机器人身上装有某种传感器，一定范围内该种传感器能够量测到某些固定点到自己的距离与角度，现在要根据运动方程和量测信息估算机器人的位置和n个固定点的位置。
 
 ![2](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/2.jpg)
 
-### EKF-SLAM步骤
+### 步骤
 
 状态变量X为当前机器人的位置(x,y,α,...Mi...),Mi为截至到当前观测过的固定点坐标。
 
