@@ -1,5 +1,89 @@
 
-## Optimal-Estimation-BigHomework
+# Optimal-Estimate-BigHomework
+姓名：刘振博
+
+学号：2019201920
+
+[github](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework)
+---
+
+## 完成工作
+- 一维状态量的KF仿真
+- 二维状态量的EKF仿真
+- 应用EKF实现2D-SLAM
+## 一维状态量的KF仿真
+系统建模：
+
+    x+ = F_x *x + F_u * u + F_n * n
+    y  = H * x + v
+    其中：
+    F_x = 1;
+    F_u = 1;
+    F_n = 1;
+    u = 1；
+    H = 0.5;
+    Q = 1;
+    R = 1;   
+
+状态先验：
+
+    x = 0;
+    P = 1e4;
+
+仿真初值：
+
+    X = 7;
+
+仿真结果：
+
+![1](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/1.jpg)
+
+## 二维状态量的EKF仿真
+
+系统模型：
+    
+    x+ = f ( x, u, n )
+    y  = h ( x ) + v
+
+系统定义：
+    
+    x = [px py vx vy]'
+    y = [d, a]'    
+    u = [ax, ay]'
+    n = [nx, ny]'
+    v = [vd, va]'
+
+    px+ = px + vx*dt
+    py+ = py + vy*dt
+    vx+ = vx + ax*dt + nx
+    vy+ = vy + ay*dt + ny
+
+    d = sqrt(px^2 + py^2) + vd
+    a = atan2(py, px) + va
+
+    Q = diag([.1 0.1].^2)
+    R = diag([.1 1*pi/180].^2)
+
+状态先验：
+
+    x = [1 1 0 0]'
+    P = diag([1 1 1 1].^2)
+
+仿真初值：
+
+    X = [2 1 -1 1]'
+
+
+仿真结果：
+
+![4](https://github.com/liuzhenboo/EKF-2D-SLAM/raw/master/videos/4.jpg)
+
+
+## 应用EKF实现2D-SLAM
+### 问题定义
+某移动机器人按照给定的运动方程在一个环境中运动，并且环境中有n个固定点；这个机器人身上装有某种传感器，一定范围内该种传感器能够量测到某些固定点到自己的距离与角度，现在要根据运动方程和量测信息估算机器人的位置和n个固定点的位置。
+
+![2](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/2.PNG)
 
 ### EKF-SLAM步骤
 
@@ -24,31 +108,31 @@
 ### 结果展示
 - 传感器探测范围与路标点
 
-![2](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/2.PNG)
+![2](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/2.PNG)
 
 - 第一次状态增广
 
-![1](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/1.PNG)
+![1](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/1.PNG)
 
 - 状态持续扩大
 
-![4](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/4.PNG)
+![4](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/4.PNG)
 
 
 - 状态增广已停止
 
-![5](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/5.PNG)
+![5](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/5.PNG)
 
-![6](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/6.PNG)
+![6](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/6.PNG)
 
 ---------
 ## 改动
 2020/2/21增加了轨迹显示
 
-![7](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/7.PNG)
+![7](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/7.PNG)
 
-![8](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/8.PNG)
+![8](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/8.PNG)
 
-![9](https://github.com/liuzhenboo/Optimal-Estimation-BigHomework/raw/master/videos/9.PNG)
+![9](https://github.com/liuzhenboo/Optimal-Estimate-BigHomework/raw/master/videos/9.PNG)
 
 ![Bilibili视频](https://b23.tv/av90456528)
